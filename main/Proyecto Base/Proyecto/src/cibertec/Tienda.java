@@ -69,39 +69,47 @@ public class Tienda extends JFrame implements ActionListener {
 		menuBar.add(mnArchivo);
 		
 		mntmSalir = new JMenuItem("Salir");
+		mntmSalir.addActionListener(this);
 		mnArchivo.add(mntmSalir);
 		
 		mnMantenimiento = new JMenu("Mantenimiento");
 		menuBar.add(mnMantenimiento);
 		
 		mntmConsultarLadrillo = new JMenuItem("Consultar Ladrillo");
+		mntmConsultarLadrillo.addActionListener(this);
 		mnMantenimiento.add(mntmConsultarLadrillo);
 		
 		mntmModificarLadrillo = new JMenuItem("Modificar Ladrillo");
+		mntmModificarLadrillo.addActionListener(this);
 		mnMantenimiento.add(mntmModificarLadrillo);
 		
 		mntmListarLadrillos = new JMenuItem("Listar Ladrillos");
+		mntmListarLadrillos.addActionListener(this);
 		mnMantenimiento.add(mntmListarLadrillos);
 		
 		mnVentas = new JMenu("Ventas");
 		menuBar.add(mnVentas);
 		
 		mntmVender = new JMenuItem("Vender");
+		mntmVender.addActionListener(this);
 		mnVentas.add(mntmVender);
 		
 		mntmGenerarReporte = new JMenuItem("Generar Reporte");
+		mntmGenerarReporte.addActionListener(this);
 		mnVentas.add(mntmGenerarReporte);
 		
 		mnConfiguracion = new JMenu("Configuraci\u00F3n");
 		menuBar.add(mnConfiguracion);
 		
 		mntmConfigurarObsequios = new JMenuItem("Configurar Obsequios");
+		mntmConfigurarObsequios.addActionListener(this);
 		mnConfiguracion.add(mntmConfigurarObsequios);
 		
 		mnAyuda = new JMenu("Ayuda");
 		menuBar.add(mnAyuda);
 		
 		mntmAcercaDeTienda = new JMenuItem("Acerca de Tienda");
+		mntmAcercaDeTienda.addActionListener(this);
 		mnAyuda.add(mntmAcercaDeTienda);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -110,6 +118,55 @@ public class Tienda extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mntmAcercaDeTienda) {
+			mntmAcercaDeTiendaActionPerformed(e);
+		}
+		if (e.getSource() == mntmConfigurarObsequios) {
+			mntmConfigurarObsequiosActionPerformed(e);
+		}
+		if (e.getSource() == mntmGenerarReporte) {
+			mntmGenerarReporteActionPerformed(e);
+		}
+		if (e.getSource() == mntmVender) {
+			mntmVenderActionPerformed(e);
+		}
+		if (e.getSource() == mntmListarLadrillos) {
+			mntmListarLadrillosActionPerformed(e);
+		}
+		if (e.getSource() == mntmModificarLadrillo) {
+			mntmModificarLadrilloActionPerformed(e);
+		}
+		if (e.getSource() == mntmConsultarLadrillo) {
+			mntmConsultarLadrilloActionPerformed(e);
+		}
+		if (e.getSource() == mntmSalir) {
+			mntmSalirActionPerformed(e);
+		}
 		
+	}
+	protected void mntmSalirActionPerformed(ActionEvent e) {
+		System.exit(0);
+	}
+	protected void mntmConsultarLadrilloActionPerformed(ActionEvent e) {
+		//Declaracion de Variable Que Permitira Controlar la Caja Consultar Ladrillo
+		DialogoConsultar ConsLadri;
+		//Creacion del Control a la variable de referencia
+		ConsLadri = new DialogoConsultar();
+		//Centar La Ventana Consultar Ladrillo
+		ConsLadri.setLocationRelativeTo(this);
+		//Hacer Aparecer la Caja Consultar Ladrillo
+		ConsLadri.setVisible(true);
+	}
+	protected void mntmModificarLadrilloActionPerformed(ActionEvent e) {
+	}
+	protected void mntmListarLadrillosActionPerformed(ActionEvent e) {
+	}
+	protected void mntmVenderActionPerformed(ActionEvent e) {
+	}
+	protected void mntmGenerarReporteActionPerformed(ActionEvent e) {
+	}
+	protected void mntmConfigurarObsequiosActionPerformed(ActionEvent e) {
+	}
+	protected void mntmAcercaDeTiendaActionPerformed(ActionEvent e) {
 	}
 }
