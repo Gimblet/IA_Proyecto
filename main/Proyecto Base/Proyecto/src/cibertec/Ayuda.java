@@ -11,11 +11,11 @@ import javax.swing.SwingConstants;
 
 public class Ayuda extends JDialog {
 	private JLabel lblTienda;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
+	private JLabel lblinformacion;
+	private JLabel lbldireccion;
+	private JLabel lblelaboracion;
+	private JLabel lblfecha;
+	private JLabel lblestado;
 
 	/**
 	 * Launch the application.
@@ -48,31 +48,31 @@ public class Ayuda extends JDialog {
 		lblTienda.setForeground(Color.BLACK);
 		lblTienda.setBackground(Color.BLACK);
 		lblTienda.setLabelFor(lblTienda);
-		lblTienda.setBounds(157, 26, 106, 30);
+		lblTienda.setBounds(143, 34, 106, 30);
 		getContentPane().add(lblTienda);
 		
-		lblNewLabel = new JLabel("Elaborado por Damian, Diego, Franco, Julieta y Benjamin");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBackground(new Color(240, 240, 240));
-		lblNewLabel.setToolTipText("");
-		lblNewLabel.setBounds(53, 96, 323, 105);
-		getContentPane().add(lblNewLabel);
+		lblinformacion = new JLabel("Vendemos todo tipo de ladrillos, de la mejor calidad y mejor precio.");
+		lblinformacion.setHorizontalAlignment(SwingConstants.CENTER);
+		lblinformacion.setBackground(new Color(240, 240, 240));
+		lblinformacion.setToolTipText("");
+		lblinformacion.setBounds(10, 34, 399, 105);
+		getContentPane().add(lblinformacion);
 		
-		lblNewLabel_1 = new JLabel("25/05/2023");
-		lblNewLabel_1.setBounds(157, 172, 121, 30);
-		getContentPane().add(lblNewLabel_1);
+		lbldireccion = new JLabel("Jr.Los Helenios 4060");
+		lbldireccion.setBounds(136, 97, 125, 46);
+		getContentPane().add(lbldireccion);
 		
-		lblNewLabel_2 = new JLabel("Lima,Per\u00FA");
-		lblNewLabel_2.setBounds(157, 199, 63, 14);
-		getContentPane().add(lblNewLabel_2);
+		lblelaboracion = new JLabel("Elaborado por Diego, Dami\u00E1n, Franco, Julieta y Benjam\u00EDn");
+		lblelaboracion.setBounds(67, 138, 342, 30);
+		getContentPane().add(lblelaboracion);
 		
-		lblNewLabel_3 = new JLabel("Vendemos todo tipo de ladrillo de calidad y mejor precio");
-		lblNewLabel_3.setBounds(55, 52, 334, 46);
-		getContentPane().add(lblNewLabel_3);
+		lblfecha = new JLabel("25/05/2023");
+		lblfecha.setBounds(157, 156, 66, 46);
+		getContentPane().add(lblfecha);
 		
-		lblNewLabel_4 = new JLabel("Ubicacion: Jr. Los Helenios 4060");
-		lblNewLabel_4.setBounds(101, 96, 210, 14);
-		getContentPane().add(lblNewLabel_4);
+		lblestado = new JLabel("Lima, Per\u00FA");
+		lblestado.setBounds(157, 203, 66, 14);
+		getContentPane().add(lblestado);
 
 	}
 }
