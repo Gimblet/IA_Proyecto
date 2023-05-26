@@ -13,6 +13,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class DialogoConsultar extends JDialog implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblModelo;
 	private JLabel lblPrecio;
 	private JLabel lblAncho;
