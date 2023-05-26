@@ -4,15 +4,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.UIManager;
+import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class DialogoConsultar extends JDialog implements ActionListener {
+public class ModificarLadrillo extends JDialog {
+
 	/**
 	 * 
 	 */
@@ -28,8 +29,9 @@ public class DialogoConsultar extends JDialog implements ActionListener {
 	private JTextField txtAncho;
 	private JTextField txtLargo;
 	private JTextField txtEspesor;
-	private JTextField txtCanOptima;
+	private JTextField txtCanOpMil;
 	private JButton btnCerrar;
+	private JButton btnGrabar;
 
 	/**
 	 * Launch the application.
@@ -43,11 +45,10 @@ public class DialogoConsultar extends JDialog implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DialogoConsultar dialog = new DialogoConsultar();
+					ModificarLadrillo dialog = new ModificarLadrillo();
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setVisible(true);
-				}
-				catch (Exception e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -57,83 +58,89 @@ public class DialogoConsultar extends JDialog implements ActionListener {
 	/**
 	 * Create the dialog.
 	 */
-	public DialogoConsultar() {
-		setModal(true);
-		setTitle("Consultar Ladrillo");
+	public ModificarLadrillo() {
+		setTitle("Modificar Ladrillo");
 		setBounds(100, 100, 442, 278);
 		getContentPane().setLayout(null);
 		
 		lblModelo = new JLabel("Modelo");
-		lblModelo.setBounds(10, 15, 46, 22);
+		lblModelo.setBounds(19, 15, 46, 22);
 		getContentPane().add(lblModelo);
 		
 		lblPrecio = new JLabel("Precio (S/)");
-		lblPrecio.setBounds(10, 52, 50, 22);
+		lblPrecio.setBounds(19, 52, 50, 22);
 		getContentPane().add(lblPrecio);
 		
 		lblAncho = new JLabel("Ancho (cm)");
-		lblAncho.setBounds(10, 89, 54, 22);
+		lblAncho.setBounds(19, 89, 54, 22);
 		getContentPane().add(lblAncho);
 		
 		lblLargo = new JLabel("Largo (cm)");
-		lblLargo.setBounds(10, 126, 54, 22);
+		lblLargo.setBounds(19, 126, 54, 22);
 		getContentPane().add(lblLargo);
 		
 		lblEspesor = new JLabel("Espesor (mm)");
-		lblEspesor.setBounds(10, 163, 65, 22);
+		lblEspesor.setBounds(19, 163, 65, 22);
 		getContentPane().add(lblEspesor);
 		
 		lblCanOptima = new JLabel("Can. \u00D3ptima (millares)");
-		lblCanOptima.setBounds(10, 200, 106, 22);
+		lblCanOptima.setBounds(19, 200, 106, 22);
 		getContentPane().add(lblCanOptima);
 		
 		cboModelo = new JComboBox<String>();
 		cboModelo.setModel(new DefaultComboBoxModel<String>(new String[] {"Ladrillo King Kong 18 Huecos", "Ladrillo King Long Macizo", "Ladrillo Pandereta Acanalada", "Ladrillo Patelero", "Ladrillo Techo Hueco"}));
-		cboModelo.setBounds(126, 15, 184, 22);
+		cboModelo.setBounds(135, 15, 184, 22);
 		getContentPane().add(cboModelo);
 		
 		txtPrecio = new JTextField();
-		txtPrecio.setEditable(false);
 		txtPrecio.setColumns(10);
-		txtPrecio.setBounds(126, 53, 184, 20);
+		txtPrecio.setBounds(135, 52, 184, 22);
 		getContentPane().add(txtPrecio);
 		
 		txtAncho = new JTextField();
-		txtAncho.setEditable(false);
 		txtAncho.setColumns(10);
-		txtAncho.setBounds(126, 90, 184, 20);
+		txtAncho.setBounds(135, 89, 184, 22);
 		getContentPane().add(txtAncho);
 		
 		txtLargo = new JTextField();
-		txtLargo.setEditable(false);
 		txtLargo.setColumns(10);
-		txtLargo.setBounds(126, 127, 184, 20);
+		txtLargo.setBounds(135, 126, 184, 22);
 		getContentPane().add(txtLargo);
 		
 		txtEspesor = new JTextField();
-		txtEspesor.setEditable(false);
 		txtEspesor.setColumns(10);
-		txtEspesor.setBounds(126, 163, 184, 20);
+		txtEspesor.setBounds(135, 163, 184, 22);
 		getContentPane().add(txtEspesor);
 		
-		txtCanOptima = new JTextField();
-		txtCanOptima.setEditable(false);
-		txtCanOptima.setColumns(10);
-		txtCanOptima.setBounds(126, 201, 184, 20);
-		getContentPane().add(txtCanOptima);
+		txtCanOpMil = new JTextField();
+		txtCanOpMil.setColumns(10);
+		txtCanOpMil.setBounds(135, 200, 184, 22);
+		getContentPane().add(txtCanOpMil);
 		
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(326, 15, 89, 23);
+		btnCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnCerrarActionPerformed(e);
+			}
+		});
+		btnCerrar.setBounds(329, 15, 89, 23);
 		getContentPane().add(btnCerrar);
+		
+		btnGrabar = new JButton("Grabar");
+		btnGrabar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnGrabarActionPerformed(e);
+			}
+		});
+		btnGrabar.setBounds(329, 52, 89, 23);
+		getContentPane().add(btnGrabar);
 
 	}
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnCerrar) {
-			btnCerrarActionPerformed(e);
-		}
+	protected void btnGrabarActionPerformed(ActionEvent e) {
+		//AGREGAR EL CODIGO PARA QUE EL BOTON GRABAR FUNCIONE
 	}
 	protected void btnCerrarActionPerformed(ActionEvent e) {
+		//Configar el botón cerrar para que haga su acción
 		dispose();
 	}
 }
