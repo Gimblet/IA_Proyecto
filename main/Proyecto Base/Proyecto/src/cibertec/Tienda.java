@@ -158,6 +158,14 @@ public class Tienda extends JFrame implements ActionListener {
 		ConsLadri.setVisible(true);
 	}
 	protected void mntmModificarLadrilloActionPerformed(ActionEvent e) {
+		//Declaracion de Variable Que Permitira Controlar la Caja Modificar Ladrillo
+		ModificarLadrillo ModLad;
+		//Creacion del Control a la variable de referencia
+		ModLad = new ModificarLadrillo();
+		//Centar La Ventana Modificar Ladrillo
+		ModLad.setLocationRelativeTo(this);
+		//Hacer Aparecer la Caja Modificar Ladrillo
+		ModLad.setVisible(true);
 	}
 	protected void mntmListarLadrillosActionPerformed(ActionEvent e) {
 	}
