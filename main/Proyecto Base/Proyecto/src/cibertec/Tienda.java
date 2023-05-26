@@ -166,7 +166,23 @@ public class Tienda extends JFrame implements ActionListener {
 	protected void mntmGenerarReporteActionPerformed(ActionEvent e) {
 	}
 	protected void mntmConfigurarObsequiosActionPerformed(ActionEvent e) {
+		//Declaracion de Variable Que Permitira Controlar la Caja Configurar Obsequio
+		ConfigurarObsequio configObs;
+		//Creacion del Control a la variable de referencia
+		configObs = new ConfigurarObsequio();
+		//Centar La Ventana Configurar Obsequio
+		configObs.setLocationRelativeTo(this);
+		//Hacer Aparecer la Caja Configurar Obsequio
+		configObs.setVisible(true);
 	}
 	protected void mntmAcercaDeTiendaActionPerformed(ActionEvent e) {
+		//Declaracion de Variable Que Permitira Controlar la Caja Ayuda
+		Ayuda acercTienda;
+		//Creacion del Control a la variable de referencia
+		acercTienda = new Ayuda();
+		//Centar La Ventana Ayuda
+		acercTienda.setLocationRelativeTo(this);
+		//Hacer Aparecer la Caja Ayuda
+		acercTienda.setVisible(true);
 	}
 }
