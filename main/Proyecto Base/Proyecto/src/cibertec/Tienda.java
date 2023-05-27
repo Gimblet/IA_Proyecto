@@ -170,6 +170,14 @@ public class Tienda extends JFrame implements ActionListener {
 	protected void mntmListarLadrillosActionPerformed(ActionEvent e) {
 	}
 	protected void mntmVenderActionPerformed(ActionEvent e) {
+		//Declaracion de Variable Que Permitira Controlar la pantalla Vender
+		Vender PVen;
+		//Creacion del Control a la variable de referencia
+		PVen = new Vender();
+		//Centar La Ventana Vender
+		PVen.setLocationRelativeTo(this);
+		//Hacer Aparecer la Caja Vender
+		PVen.setVisible(true);
 	}
 	protected void mntmGenerarReporteActionPerformed(ActionEvent e) {
 	}
