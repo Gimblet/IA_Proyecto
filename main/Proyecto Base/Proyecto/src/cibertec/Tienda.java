@@ -30,6 +30,7 @@ public class Tienda extends JFrame implements ActionListener {
 	private JMenuItem mntmGenerarReporte;
 	private JMenuItem mntmConfigurarObsequios;
 	private JMenuItem mntmAcercaDeTienda;
+	private JMenuItem mntmConfigDescuentos;
 
 	/**
 	 * Launch the application.
@@ -103,6 +104,14 @@ public class Tienda extends JFrame implements ActionListener {
 		
 		mntmConfigurarObsequios = new JMenuItem("Configurar Obsequios");
 		mntmConfigurarObsequios.addActionListener(this);
+		
+		mntmConfigDescuentos = new JMenuItem("Configurar Descuentos");
+		mntmConfigDescuentos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mntmConfigDescuentosActionPerformed(e);
+			}
+		});
+		mnConfiguracion.add(mntmConfigDescuentos);
 		mnConfiguracion.add(mntmConfigurarObsequios);
 		
 		mnAyuda = new JMenu("Ayuda");
@@ -168,6 +177,8 @@ public class Tienda extends JFrame implements ActionListener {
 		ModLad.setVisible(true);
 	}
 	protected void mntmListarLadrillosActionPerformed(ActionEvent e) {
+		//VENTANA PARA PRACTICA DE JULIETA
+		
 	}
 	protected void mntmVenderActionPerformed(ActionEvent e) {
 		//Declaracion de Variable Que Permitira Controlar la pantalla Vender
@@ -180,6 +191,14 @@ public class Tienda extends JFrame implements ActionListener {
 		PVen.setVisible(true);
 	}
 	protected void mntmGenerarReporteActionPerformed(ActionEvent e) {
+		//Declaracion de Variable Que Permitira Controlar la pantalla Generar Reportes
+		GenerarReportes GenReprt;
+		//Creacion del Control a la variable de referencia
+		GenReprt = new GenerarReportes();
+		//Centar La Ventana Generar Reportes
+		GenReprt.setLocationRelativeTo(this);
+		//Hacer Aparecer la Caja Vender
+		GenReprt.setVisible(true);
 	}
 	protected void mntmConfigurarObsequiosActionPerformed(ActionEvent e) {
 		//Declaracion de Variable Que Permitira Controlar la Caja Configurar Obsequio
@@ -200,5 +219,15 @@ public class Tienda extends JFrame implements ActionListener {
 		acercTienda.setLocationRelativeTo(this);
 		//Hacer Aparecer la Caja Ayuda
 		acercTienda.setVisible(true);
+	}
+	protected void mntmConfigDescuentosActionPerformed(ActionEvent e) {
+		//Declaracion de Variable Que Permitira Controlar la Caja Configurar Descuentos
+		ConfigurarDescuentos ConfigDes;
+		//Creacion del Control a la variable de referencia
+		ConfigDes = new ConfigurarDescuentos();
+		//Centar La Ventana Configurar Descuentos
+		ConfigDes.setLocationRelativeTo(this);
+		//Hacer Aparecer la Caja Configurar Descuentos
+		ConfigDes.setVisible(true);
 	}
 }
