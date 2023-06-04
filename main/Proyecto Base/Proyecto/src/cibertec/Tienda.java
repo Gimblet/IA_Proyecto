@@ -178,6 +178,11 @@ public class Tienda extends JFrame implements ActionListener {
 	}
 	protected void mntmListarLadrillosActionPerformed(ActionEvent e) {
 		//VENTANA PARA PRACTICA DE JULIETA
+		DialogoListar la;
+		la = new DialogoListar();
+		la.setLocationRelativeTo(this);
+		la.setVisible(true);
+		
 		
 	}
 	protected void mntmVenderActionPerformed(ActionEvent e) {
