@@ -1,18 +1,17 @@
 package cibertec;
 
 import java.awt.EventQueue;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
 import javax.swing.UIManager;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class DialogoConsultar extends JDialog implements ActionListener {
+public class DialogoConsultar extends JDialog{
 	/**
 	 * 
 	 */
@@ -88,6 +87,11 @@ public class DialogoConsultar extends JDialog implements ActionListener {
 		getContentPane().add(lblCanOptima);
 		
 		cboModelo = new JComboBox<String>();
+		cboModelo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarValoresPrincipales();
+			}
+		});
 		cboModelo.setModel(new DefaultComboBoxModel<String>(new String[] {"Ladrillo King Kong 18 Huecos", "Ladrillo King Long Macizo", "Ladrillo Pandereta Acanalada", "Ladrillo Patelero", "Ladrillo Techo Hueco"}));
 		cboModelo.setBounds(126, 15, 184, 22);
 		getContentPane().add(cboModelo);
@@ -122,17 +126,53 @@ public class DialogoConsultar extends JDialog implements ActionListener {
 		txtCanOptima.setBounds(126, 201, 184, 20);
 		getContentPane().add(txtCanOptima);
 		
+		mostrarValoresPrincipales();
+		
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.addActionListener(this);
+		btnCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnCerrarActionPerformed(e);
+			}
+		});
 		btnCerrar.setBounds(326, 15, 89, 23);
 		getContentPane().add(btnCerrar);
-
+		
 	}
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btnCerrar) {
-			btnCerrarActionPerformed(e);
+	
+	void mostrarValoresPrincipales() {
+		int mod;
+		mod = obtenerIndex();
+		switch(mod) {
+		case 0: 
+			mostrarLadrillo(Tienda.precio0,Tienda.ancho0,Tienda.largo0,Tienda.espesor0,Tienda.cantidadoptima0);
+			break;
+		case 1:
+			mostrarLadrillo(Tienda.precio1,Tienda.ancho1,Tienda.largo1,Tienda.espesor1,Tienda.cantidadoptima1);
+			break;
+		case 2:
+			mostrarLadrillo(Tienda.precio2,Tienda.ancho2,Tienda.largo2,Tienda.espesor2,Tienda.cantidadoptima2);
+			break;
+		case 3:
+			mostrarLadrillo(Tienda.precio3,Tienda.ancho3,Tienda.largo3,Tienda.espesor3,Tienda.cantidadoptima3);
+			break;
+		default:
+			mostrarLadrillo(Tienda.precio4,Tienda.ancho4,Tienda.largo4,Tienda.espesor4,Tienda.cantidadoptima4);
 		}
 	}
+	
+	void mostrarLadrillo(double pre, double anch, double lar, double espe, int canop) {
+		txtPrecio.setText(pre + "");
+		txtAncho.setText(anch + "");
+		txtLargo.setText(lar + "");
+		txtEspesor.setText(espe + "");
+		txtCanOptima.setText(canop + "");
+	}
+	
+	int obtenerIndex() {
+		return cboModelo.getSelectedIndex();
+	}
+	
+	
 	protected void btnCerrarActionPerformed(ActionEvent e) {
 		dispose();
 	}

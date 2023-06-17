@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.UIManager;
@@ -134,9 +135,89 @@ public class ConfigurarObsequio extends JDialog {
 		});
 		btnCancelar.setBounds(335, 45, 89, 23);
 		getContentPane().add(btnCancelar);
-
+		
+		txtObs.setText(Tienda.tipoObsequio);
+		txt1to5mil.setText(Tienda.obsequioCantidad1 + "");
+		txt6to10mil.setText(Tienda.obsequioCantidad2 + "");
+		txt11to15mil.setText(Tienda.obsequioCantidad3 + "");
+		txt16to20mil.setText(Tienda.obsequioCantidad4 + "");
+		txtMoreThan20mil.setText(Tienda.obsequioCantidad5 + "");
+		
 	}
-
+	protected void actionPerfomedBtnAceptar(ActionEvent e) {
+		String obs;
+		int mill1a5,mill6a10,mill11a15,mill16a20,millmore20;
+		obs = leerObsequio();
+		mill1a5 = leer1to5mil();
+		mill6a10 = leer6to10mil();
+		mill11a15 = leer11to15mil();
+		mill16a20 = leer16to20mil();
+		millmore20 = leerMoreThan20mil();
+		if(mill1a5<0) {
+			JOptionPane.showMessageDialog(this,"valor de millares minimo mayores que 0");
+			txt1to5mil.requestFocus();
+			txt1to5mil.selectAll();
+		}
+			
+			else if(mill6a10<0) {
+				JOptionPane.showMessageDialog(this,"valor de millares minimo mayores que 0");
+				txt6to10mil.requestFocus();
+				txt6to10mil.selectAll();
+			}
+			
+			else if(mill11a15<0) {
+				JOptionPane.showMessageDialog(this,"valor de millares minimo mayores que 0");
+				txt11to15mil.requestFocus();
+				txt11to15mil.selectAll();
+			}
+			
+			else if(mill16a20<0) {
+				JOptionPane.showMessageDialog(this,"valor de millares minimo mayores que 0");
+				txt16to20mil.requestFocus();
+				txt16to20mil.selectAll();
+			}
+			
+			else if(mill1a5<0) {
+				JOptionPane.showMessageDialog(this,"valor de millares minimo mayores que 0");
+				txtMoreThan20mil.requestFocus();
+				txtMoreThan20mil.selectAll();	
+			}
+		
+		else if(obs.length()==0) {
+				JOptionPane.showMessageDialog(this,"Obsequio no puede estar vacío");
+				txtObs.requestFocus();
+			}
+		else {
+			Tienda.tipoObsequio = obs;
+			Tienda.obsequioCantidad1 = mill1a5;
+			Tienda.obsequioCantidad2 = mill6a10;
+			Tienda.obsequioCantidad3 = mill11a15;
+			Tienda.obsequioCantidad4 = mill16a20;
+			Tienda.obsequioCantidad5 = millmore20;
+			dispose();
+		}
+	}
+		
+	
+	String leerObsequio() {
+		return txtObs.getText();
+	}
+	int leer1to5mil() {
+		return Integer.parseInt(txt1to5mil.getText());
+	}
+	int leer6to10mil() {
+		return Integer.parseInt(txt6to10mil.getText());
+	}
+	int leer11to15mil() {
+		return Integer.parseInt(txt11to15mil.getText());
+	}
+	int leer16to20mil() {
+		return Integer.parseInt(txt16to20mil.getText());
+	}
+	int leerMoreThan20mil() {
+		return Integer.parseInt(txtMoreThan20mil.getText());
+	}
+	
 	protected void btnCancelarActionPerformed(ActionEvent e) {
 		//Cierra La Ventana Configurar Obsequio Al precionar el botón "Cancelar"
 		dispose();
