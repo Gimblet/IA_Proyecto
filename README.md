@@ -1,4 +1,6 @@
-# Intro_Algo_Final_Project
+# Como usar GitHub?
+
+A pedido de nadie actualizaré esto para tengan mas claro comno trabajar colaborativamente en esta plataforma
 
 Para poder usar el codigo en tu Eclipse diriganse a la parte de lanzamientos (Releases)
 
